@@ -37,7 +37,7 @@ class Board:
                     grid[i][j] = EMPTY
                 elif grid[i][j][0] > 180:
                     grid[i][j] = RED
-                elif grid[i][j][0] > 45:
+                elif grid[i][j][0] >= 40:
                     grid[i][j] = BLUE
         return grid
 
@@ -106,3 +106,10 @@ class Board:
             self._get_my_grid()[column][0] + LEFT,
             YCORD,
         )
+
+    def check_if_no_moves(self):
+        for j in range(0, 7):
+            for i in range(0, 6):
+                if self.board[i][j] == EMPTY:
+                    return False
+        return True
